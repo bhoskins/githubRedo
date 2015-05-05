@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="styles/main.css" >
+  <link rel="stylesheet"  href="bower_components/octicons/octicons/octicons.css">
+  <title>Document</title>
+</head>
+<body>
+  <div class="page-wrap">
+
+    <header class="header">
+    </header>
+
+    <div class="main-content-wrap">
+
+      <div class="sidebar clearfix">
+        <ul class="userInfoUl">
+        </ul>
+      </div><!--.sidebar .clearfix -->
+
+    <div class="repo-wrap">
+      <div class="repo-top">
+      </div>
+       <ul class="repositories">
+        </ul><!-- .repositories -->
+    </div><!-- .repo-wrap -->
+    </div> <!-- .main-content-wrap -->
+
+  </div><!-- .pageWrap -->
+
+  <script type="text/javascript" src="token.js">
+  </script>
+
+  <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+
+  <script type="text/javascript" src="bower_components/underscore/underscore.js">
+  </script>
+
+  <script type="text/javascript" src="bower_components/moment/moment.js">
+  </script>
+
+  <script type="text/template" data-template-name="userInfo">
+    <li>
+      <a href="https://github.com/settings/profile" class="avatar-link tool-tipped tool-tipped-n" data-title="Change your avatar">
+        <img src="<%= avatar_url%>" alt="profile picture" width="230px" height="230px">
+      </a>
+
+      <h1 class="user-name"><%= name %></h1>
+      <h2 class="login"><%= login %></h2>
+      <li class="location-li"><span class="octicon octicon-location"></span>
+        <span class="location"><%= location %></span>
+      </li>
+      <li class="email-li"><a href="mailto:<%= email %> "><span class="octicon octicon-mail"></span>
+        <%= email %></a>
+      </li>
+      <li class="created-at-li"><span class="octicon octicon-clock"></span>
+    <!--     <%= moment(" created_at ").format('MMM Do, YYYY')
+     %> -->
+         Joined on Jul 17, 2014
+      </li>
+    </ul>
+
+    <div class="stats-wrapper clearfix">
+      <a href="https://github.com/bhoskins/followers" class="stats">
+        <span class="followers-number number"><%= followers %></span>
+        <span class="text-followers stat-text">Followers</span>
+      </a>
+      <a href="https://github.com/stars" class="stats">
+        <span class="starred-number number"><%= public_gists %></span>
+        <span class="text-shared stat-text">Shared</span>
+      </a>
+      <a href="https://github.com/bhoskins/following" class="stats">
+        <span class="number shared-number"><%= following %></span>
+        <span class="text-following stat-text">Following</span>
+      </a>
+    </div> <!-- .stats-wrapper -->
+
+    <div class="organizations-wrapper clearfix">
+      <h2 class="organizations">Organizations</h2>
+      <a href="https://github.com/TIY-GVL-FEE-2015-Jan" data-title="TIY-GVL-FEE-2015-Jan" class="organization-link tool-tipped tool-tipped-s" itemprop="follows">
+        <img alt="TIY-GVL-FEE-2015-Jan"
+        class="avatar" data-user="10091499" height="42" src="https://avatars1.githubusercontent.com/u/10091499?v=3&amp;s=84" width="42">
+      </a>
+
+    </div> <!-- .organizations-wrapper -->
+  </script>
+
+  <script type="text/template" data-template-name="repo">
+    <li>
+      <div class="repo-name">
+      <a class="repo-link" href="<%= html_url %>" ><span class="span-name"><%= name %></span></a>
+      <h2 class="update">Updated <%= moment(pushed_at).fromNow() %></h2>
+    </div>
+
+    <div class="repo-stats">
+      <span class="language"><%= language %></span>
+
+      <a class="stargazers tool-tipped tool-tipped-n"
+      href="https://github.com/bhoskins/github/stargazers" data-title='Stargazers'>
+        <span class="octicon octicon-star"></span>
+        <span class="stargazers-count"><%= stargazers_count %></span>
+      </a>
+
+      <a class="forks tool-tipped tool-tipped-n" href="https://github.com/bhoskins/github/network" data-title="Forks">
+        <span class="octicon octicon-git-branch"></span>
+        <span class="forks-count"><%= forks_count %></span>
+      </a>
+
+    </div><!-- .repo-stats -->
+  </script>
+
+  <script src="scripts/main.js"></script>
+
+</body>
+</html>
+
